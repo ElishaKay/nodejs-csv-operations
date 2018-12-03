@@ -22,6 +22,10 @@ var csvStream = csv()
     .on("end", function(){
          console.log("done");
          console.log('refDomains Array: ', refDomains);
+         fs.writeFile('temp.txt', JSON.stringify(refDomains), function(err, refDomains){
+            if (err) console.log(err);
+            console.log("Successfully Written to File.");
+        });
     });
  
 stream.pipe(csvStream);
