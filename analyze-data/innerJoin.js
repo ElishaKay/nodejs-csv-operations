@@ -1,3 +1,4 @@
+let fs = require('fs');
 const allBacklinks = require('../output/allBacklinks');
 const refDomains = require('../output/refDomains');
 const newArr = [];
@@ -27,3 +28,8 @@ allBacklinks.forEach(function (backlinkRecord) {
 });
 
 console.log('newArr.length(): ', newArr.length);
+
+fs.writeFile('../output/backlinksAndDomains.js', JSON.stringify(newArr), function(err, newArr){
+            if (err) console.log(err);
+            console.log("Successfully Written to File.");
+});
