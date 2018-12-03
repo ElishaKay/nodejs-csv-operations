@@ -1,11 +1,7 @@
 let fs = require('fs');
 let csv = require('fast-csv');
 
-// let mysql = require('mysql');
-// let dbconfig = require('../config/database');
-// let connection = mysql.createConnection(dbconfig.connection);
-
-var stream = fs.createReadStream("./csv-files/lumen-refdomains.csv");
+var stream = fs.createReadStream("../csv-files/lumen-refdomains.csv");
 
 let refDomains = [];
 

@@ -6,6 +6,7 @@
 		"start": "node server.js"
 	},
 	"dependencies": {
+		"alasql": "^0.4.11",
 		"body-parser": "*",
 		"express": "*",
 		"fast-csv": "^2.4.1"
