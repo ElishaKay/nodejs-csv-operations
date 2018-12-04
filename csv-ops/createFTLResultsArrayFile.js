@@ -19,7 +19,7 @@ var csvStream = csv()
     .on("end", function(){
          console.log("done");
          console.log('Results from FTL: ', newArr);
-         fs.writeFile('../output/ftlResults.txt', JSON.stringify(newArr), function(err, newArr){
+         fs.writeFile('../output/ftlResults.js', JSON.stringify(newArr), function(err, newArr){
             if (err) console.log(err);
             console.log("Successfully Written to File.");
          });
