@@ -7,6 +7,8 @@ const ftlResults = require('../output/ftlResults');
 let newArr = alasql('SELECT * \
             FROM ? arrA JOIN ? arrB USING domain', [backlinksAndDomains, ftlResults]);
 
+// source: https://stackoverflow.com/questions/39885893/how-to-find-duplicate-values-in-a-javascript-array-of-objects-and-output-only-u
+newArr = newArr.filter((set => f => !set.has(f.email) && set.add(f.email))(new Set));
 
 console.log('newArr.length(): ', newArr.length);
 
