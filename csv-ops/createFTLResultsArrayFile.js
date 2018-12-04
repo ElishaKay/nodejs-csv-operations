@@ -1,25 +1,25 @@
 let fs = require('fs');
 let csv = require('fast-csv');
 
-var stream = fs.createReadStream("../csv-files/lumen-all-backlinks.csv");
+var stream = fs.createReadStream("../csv-files/lumen-ftl-results.csv");
 
-let allBacklinksArr = [];
+let newArr = [];
 
 var csvStream = csv()
     .on("data", function(data){
          console.log(data);
-         let allBacklinksObj = {};
-         allBacklinksObj['pageTrustScore'] = data[1];
-         allBacklinksObj['sourceTitle'] = data[2];
-         allBacklinksObj['sourceUrl'] = data[3];
+         let ftlResultsObj = {};
+         ftlResultsObj['domain'] = data[0];
+         ftlResultsObj['email'] = data[1];
+         ftlResultsObj['name'] = data[2];
          
-         allBacklinksArr.push(allBacklinksObj);
+         newArr.push(ftlResultsObj);
 
 	})
     .on("end", function(){
          console.log("done");
-         console.log('allBacklinks Array: ', allBacklinksArr);
-         fs.writeFile('../output/allBacklinks.txt', JSON.stringify(allBacklinksArr), function(err, allBacklinksArr){
+         console.log('Results from FTL: ', newArr);
+         fs.writeFile('../output/ftlResults.txt', JSON.stringify(newArr), function(err, newArr){
             if (err) console.log(err);
             console.log("Successfully Written to File.");
          });
