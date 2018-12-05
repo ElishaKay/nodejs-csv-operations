@@ -10,9 +10,13 @@ let newArr = alasql('SELECT * \
 // source: https://stackoverflow.com/questions/39885893/how-to-find-duplicate-values-in-a-javascript-array-of-objects-and-output-only-u
 newArr = newArr.filter((set => f => !set.has(f.email) && set.add(f.email))(new Set));
 
+console.log('newArr: ', newArr);
+
 console.log('newArr.length(): ', newArr.length);
 
-fs.writeFile('../output/backlinksDomainsAndEmails.js', JSON.stringify(newArr), function(err, newArr){
-            if (err) console.log(err);
-            console.log("Successfully Written to File.");
-});
+
+
+// fs.writeFile('../output/backlinksDomainsAndEmails.js', JSON.stringify(newArr), function(err, newArr){
+//             if (err) console.log(err);
+//             console.log("Successfully Written to File.");
+// });
