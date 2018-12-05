@@ -7,8 +7,8 @@
 	},
 	"dependencies": {
 		"alasql": "^0.4.11",
-		"body-parser": "*",
-		"express": "*",
+		"body-parser": "^1.18.3",
+		"express": "^4.16.4",
 		"fast-csv": "^2.4.1"
 	}
 }

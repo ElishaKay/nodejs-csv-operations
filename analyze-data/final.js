@@ -4,6 +4,16 @@ let alasql = require('alasql');
 const backlinksAndDomains = require('../output/backlinksAndDomains.js');
 const ftlResults = require('../output/ftlResults');
 
+function compare(a,b) {
+  if (a.name < b.name)
+    return -1;
+  if (a.name > b.name)
+    return 1;
+  return 0;
+}
+
+ftlResults.sort(compare);
+
 let newArr = alasql('SELECT * \
             FROM ? arrA JOIN ? arrB USING domain', [backlinksAndDomains, ftlResults]);
 
